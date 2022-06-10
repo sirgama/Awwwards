@@ -1,3 +1,16 @@
-h1{
-    color: blue;
+@import url('https://fonts.googleapis.com/css2?family=MedievalSharp&family=PT+Mono&family=Poppins:wght@100;200;300;400;500;600;700;900&display=swap');
+
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    font-family: 'Poppins', sans-serif;
+}
+.submitbtn{
+    background-color: black;
+    color: white;
+    height: 60px;
 }
