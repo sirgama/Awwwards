@@ -2,8 +2,70 @@
 
 
 
+
 <!-- Navbar-->
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-light nav2 ">
+    <div class="container-fluid justify-content-between">
+      <!-- Left elements -->
+      <div class="d-flex">
+        <!-- Brand -->
+        <a class="navbar-brand me-2 mb-1 d-flex align-items-center" href="#">
+           <small><p>English</p> </small> 
+        </a>
+        
+      </div>
+      <!-- Left elements -->
+  
+      <!-- Center elements -->
+      <ul class="navbar-nav flex-row d-none d-md-flex">
+          <li class="nav-item me-3 me-lg-1">
+       <small><p class="mt-3">The awards of design, creativity and innovation on the internet</p></small>
+        </li>
+      </ul>
+      <!-- Center elements -->
+  
+      <!-- Right elements -->
+      <ul class="navbar-nav flex-row">
+        
+        
+        <li class="nav-item ">
+          <small>
+            <i class="fa-brands fa-twitter"></i>
+            <i class="fa-brands fa-facebook-f"></i>
+            <i class="fa-brands fa-instagram"></i>
+          </small>
+        </li>
+    </ul>
+      <!-- Right elements -->
+    </div>
+  </nav>
+  <!-- Navbar -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Navbar-->
+<nav class="navbar navbar-expand-lg navbar-light sticky-top bg-light">
     <div class="container-fluid justify-content-between">
       <!-- Left elements -->
       <div class="d-flex">
@@ -27,8 +89,8 @@
   
       <!-- Center elements -->
       <ul class="navbar-nav flex-row d-none d-md-flex">
-          <li class="nav-item me-3 me-lg-1">
-        <img class="img-responsive" src="{% static 'projects/assets/awwards.svg' %}" height="25" alt="">
+          <li class="nav-item ">
+        <img class="img-responsive ms-5" src="{% static 'projects/assets/awwards.svg' %}" height="25" alt="">
         </li>
       </ul>
       <!-- Center elements -->
@@ -38,12 +100,12 @@
         
         <li class="nav-item me-3 me-lg-1">
             <a class="nav-link" href="#">
-                <h6 class="fw-bold text-dark mt-2">REGISTER/LOG IN</h6>
+               <small> <p class="fw-bold text-dark mt-3">REGISTER/LOG IN</p></small>
             </a>
           </li>
-        <li class="">
-          <a class="nav-link submitbtn justify-content-center" href="#">
-           SUBMIT YOUR SITE
+        <li class="nav-item submitbtn">
+          <a class="nav-link text-white m-3 " href="#">
+           <small class=""> SUBMIT YOUR SITE!</small>
           </a>
         </li>
     </ul>

@@ -10,7 +10,8 @@
     font-family: 'Poppins', sans-serif;
 }
 .submitbtn{
-    background-color: black;
+    background-color: #202221;
     color: white;
-    height: 60px;
+    height: 70px;
+    width: 180px;
 }
