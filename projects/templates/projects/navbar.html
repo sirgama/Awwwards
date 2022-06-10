@@ -2,27 +2,71 @@
 
 
 
-  <div class="collapse" id="navbarToggleExternalContent">
-    <div class="bg-dark p-4">
-      <h5 class="text-white h4">Collapsed content</h5>
-      <span class="text-muted">Toggleable via the navbar brand.</span>
-    </div>
-  </div>
-  <nav class="navbar navbar-light " style="background-color: #f0f0f0;">
-    <div class="container-fluid">
-      <button
-        class="btn btn-light btn-md"
-        style="background-color: #f0f0f0; border:none; border-right: 0.1px solid rgba(126, 107, 107, 0.509); border-radius: 0;"
-        type="button"
-        data-bs-toggle="offcanvas"
-        data-bs-target="#offcanvasWithBothOptions"
-        aria-controls="offcanvasWithBothOptions"
+<!-- Navbar-->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid justify-content-between">
+      <!-- Left elements -->
+      <div class="d-flex">
+        <!-- Brand -->
+        <a class="navbar-brand me-2 mb-1 d-flex align-items-center" href="#">
+            <div
+            class="btn btn-light btn-lg"
+            style="background-color: #f8f9fb; border:none; border-right: 0.1px solid rgba(126, 107, 107, 0.35); border-radius: 0;"
+            type="button"
+            data-bs-toggle="offcanvas"
+            data-bs-target="#offcanvasWithBothOptions"
+            aria-controls="offcanvasWithBothOptions"
+            
+          >
+            <i class="fas fa-bars"></i> <small> Menu</small> 
+        </div>
+        </a>
         
-      >
-        <i class="fas fa-bars"></i> <small> Menu</small> 
-      </button>
+      </div>
+      <!-- Left elements -->
+  
+      <!-- Center elements -->
+      <ul class="navbar-nav flex-row d-none d-md-flex">
+          <li class="nav-item me-3 me-lg-1">
+        <img class="img-responsive" src="{% static 'projects/assets/awwards.svg' %}" height="25" alt="">
+        </li>
+      </ul>
+      <!-- Center elements -->
+  
+      <!-- Right elements -->
+      <ul class="navbar-nav flex-row">
+        
+        <li class="nav-item me-3 me-lg-1">
+            <a class="nav-link" href="#">
+                <h6 class="fw-bold mt-2">REGISTER/LOG IN</h6>
+            </a>
+          </li>
+        <li class="nav-item me-3 me-lg-1">
+          <a class="nav-link" href="#">
+            <span><button class="btn btn-dark btn-lg"><small>SUBMIT YOUR SITE</small> </button></span>
+          </a>
+        </li>
+    </ul>
+      <!-- Right elements -->
     </div>
   </nav>
+  <!-- Navbar -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">Enable both scrolling & backdrop</button>
 
