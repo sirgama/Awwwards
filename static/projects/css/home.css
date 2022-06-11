@@ -37,16 +37,32 @@
     font-weight: 300;
 }
 .badge {
-    height: 100px;
-    width: 100px;
+    height: 80px;
+    width: 80px;
     display: table-cell;
     text-align: center;
     vertical-align: middle;
     border-radius: 50%; /* may require vendor prefixes */
    
-    border-right: 5px solid pink;
-    border-bottom: 5px solid pink;
-    font-size: 35px;
-    font-weight: 400;
+    border-right: 3px solid pink;
+    border-bottom: 3px solid pink;
+    font-size: 28px;
+    font-weight: 600;
 
   }
+  .mask:hover {
+    background-color: rgba(0, 0, 0, 0.2);
+
+  }
+
+          /* Default height for small devices */
+          #intro-example {
+            height: 100vh;
+          }
+      
+          /* Height for devices larger than 992px */
+          @media (min-width: 992px) {
+            #intro-example {
+              height: 100vh;
+            }
+          }
