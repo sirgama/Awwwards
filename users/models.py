@@ -17,7 +17,6 @@ class Profile(models.Model):
     linkedin = models.CharField(max_length=100, null=True, blank=True)
     
     def __str__(self):
-        return f'{self.User.username} Profile'
+        return f'{self.user.username} Profile'
     
-    def save(self, *args, **kwargs):
-        super(Profile, self).save(*args, **kwargs) 
+  

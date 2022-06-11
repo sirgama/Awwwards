@@ -1,13 +1,109 @@
-{% load rest_framework %}
+{% extends 'users/base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
 
-<html><body>
+{% block content %}
+          
+<style>
 
-<h1>Register</h1>
 
-<form action="{% url 'register' %}" method="POST">
-    {% csrf_token %}
-    {% render_form serializer %}
-    <input type="submit" value="Save">
-</form>
+.form-area{
+    background-color: ffffff;
+   
+    
+}
 
-</body></html>
+.mainlogo{
+    width:14vw ;
+    height: 8vh;
+   
+}
+
+
+.facebooktxt{
+    color: #375184;
+}
+
+.consent{
+    font-size: 12px;
+}
+
+
+
+
+
+
+
+@media screen and (max-width: 600px) {
+    .phonediv {
+      display: none;
+    }
+    .mainlogo{
+        width:auto ;
+        margin-left: 5px;
+    }
+  }
+</style>
+
+
+
+<div class="container-fluid">
+    <div class="container">
+        <div class="row d.flex justify-content-center">
+            <div class="col-md-5 m-md-5 phonediv">
+                <img class="img-fluid" src="{% static 'images/phone.png' %}" alt="">
+            </div>
+
+
+            <div class="col-md-4 d.flex justify-content-center m-3 ">
+                <div class="col  m-2  " >
+                    <div class="col form-area card">
+                        <div class="container">
+                            <img class="img-fluid mainlogo m-4 m-md-5" src="{% static 'images/mainlogo.png' %}" alt="">
+                        <p class="text-center text-muted fw-bold"> Sign up to see photos and <br> videos from your friends.</p>
+                        <button  class="btn btn-primary btn-block  m-4 m-md-5 text-center "><i class="fa-brands fa-facebook-square"></i> Log in with Facebook</button>
+                        </div>
+                        <form class="container " action="" method="POST">
+                            
+                            
+                            {% csrf_token %}
+
+                            <!-- Email input -->
+                           {{form | crispy}}
+                          
+                            <!-- 2 column grid layout for inline styling -->
+                            <div class="row mb-2">
+                              <div class="col d-flex justify-content-center">
+                                <small class="text-center text-muted consent"> People who use our service may have uploaded your contact information to Instagram. Learn More.</small>
+                                
+                            </div>
+                            <small class="text-center text-muted consent mt-3">By signing up, you agree to our Terms , Data Policy and Cookies Policy .</small>
+                              
+                            </div>
+                          
+                            <!-- Submit button -->
+                            <button type="submit" class="btn btn-primary  mb-4 btn-block">Sign up</button>
+                          
+                          
+                           
+                          </form>
+
+                          
+                    </div>
+                    <div class="mt-4 bg-white text-center card">
+                        <p>Have an account? <a href="{% url 'login' %}" class="sign fw-bold">Sign in</a></p>
+                      </div>
+                      <div class="row m-3">
+                          <p class="text-center">Get the app.</p>
+                          <div class="col"><img class="img-fluid" src="{% static 'images/appstore.png' %}" alt=""></div>
+                          <div class="col"><img class="img-fluid" src="{% static 'images/playstore.png' %}" alt=""></div>
+                      </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}
