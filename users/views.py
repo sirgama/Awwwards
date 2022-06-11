@@ -1,6 +1,6 @@
 from urllib import response
 from django import http
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.renderers import TemplateHTMLRenderer
@@ -11,11 +11,14 @@ import jwt, datetime
 
 # Create your views here.
 class RegisterView(APIView):
+    renderer_classes = [TemplateHTMLRenderer]
+    template_name = 'users/register.html'
     def post(self, request):
         serializer = UserSerializer(data=request.data)
-        serializer.is_valid(raise_exception=True)
+        if serializer.is_valid():
+            return Response({"serializer":serializer})
         serializer.save()
-        return Response(serializer.data)
+        return redirect('login')
     
 class ProfileList(APIView):
     renderer_classes = [TemplateHTMLRenderer]
@@ -24,9 +27,18 @@ class ProfileList(APIView):
     def get(self, request):
         queryset = User.objects.all()
         return Response({'profiles':queryset})
+class LoginUser(APIView):
+    renderer_classes = [TemplateHTMLRenderer]
+    template_name = 'users/login.html'
+    def get(request):
+        serializer = UserSerializer()
+        
     
 class LoginView(APIView):
+       
+    
     def post(self, request):
+        
         email = request.data['email']
         password = request.data['password']
         user = User.objects.filter(email=email).first()
@@ -48,7 +60,7 @@ class LoginView(APIView):
             "jwt": token
         }
         
-        return response
+        return redirect ('homepage')
     
     
 class UserView(APIView):
@@ -77,3 +89,9 @@ class LogoutView(APIView):
             "message":"logged out"
         }
         return response
+    
+    # the functions upwards are API based for logging in, signing up and logging out
+    
+    # The codes below are django based logging system
+    
+    
