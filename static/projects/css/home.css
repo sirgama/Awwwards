@@ -54,6 +54,13 @@
     background-color: rgba(0, 0, 0, 0.2);
 
   }
+.tsmall{
+    font-size: 15px;
+    font-weight: 400;
+}
+
+
+
 
           /* Default height for small devices */
           #intro-example {
