@@ -4,6 +4,8 @@ from django.shortcuts import redirect, render
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.renderers import TemplateHTMLRenderer
+from django.contrib import messages
+from .forms import ProfileUpdateForm, UserRegisterForm, UserUpdateForm
 from .serializers import UserSerializer
 from django.contrib.auth.models import User
 from rest_framework.exceptions import AuthenticationFailed
@@ -95,11 +97,47 @@ class LogoutView(APIView):
     # The codes below are django based logging system
     
 def register(request):
-    pass
+    if request.method == 'POST':
+        form = UserRegisterForm(request.POST)
+        if form.is_valid():
+            form.save()
+            username = form.cleaned_data.get('username')
+            messages.success(request, f'Hi {username}, Account created!')
+            return redirect('edit_account')
+    else:
+        form = UserRegisterForm()
+    return render(request, 'users/register.html', {"form":form})
+    
 
 
 def profile(request):
-    pass
+    user = request.user
+    current_user = request.user
+    context = {
+        
+        'current_user':current_user
+    }
+    
+    return render(request, 'users/profile.html', context)
 
 def edit_account(request):
-    pass
+    if request.method == 'POST':
+        u_form = UserUpdateForm(request.POST, instance=request.user)
+        p_form = ProfileUpdateForm(request.POST, request.FILES, instance=request.user.profile)
+        
+        if u_form.is_valid and p_form.is_valid:
+            u_form.save()
+            p_form.save()
+            messages.success(request, f'Account updated')
+            return redirect('profile')
+        
+    else:
+        u_form = UserUpdateForm(instance=request.user)
+        p_form = ProfileUpdateForm(instance=request.user.profile)
+    
+    context = {
+        'u_form' : u_form,
+        'p_form' : p_form
+    }
+    
+    return render(request, 'users/edit_account.html', context)
