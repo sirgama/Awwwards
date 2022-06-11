@@ -94,4 +94,12 @@ class LogoutView(APIView):
     
     # The codes below are django based logging system
     
-    
+def register(request):
+    pass
+
+
+def profile(request):
+    pass
+
+def edit_account(request):
+    pass
