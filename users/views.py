@@ -4,6 +4,7 @@ from rest_framework.response import Response
 from .serializers import UserSerializer
 from django.contrib.auth.models import User
 from rest_framework.exceptions import AuthenticationFailed
+import jwt, datetime
 
 # Create your views here.
 class RegisterView(APIView):
@@ -24,7 +25,14 @@ class LoginView(APIView):
         if not user.check_password(password):
             raise AuthenticationFailed('incorrect password')
         
+        payload = {
+            "id": user.id,
+            "exp": datetime.datetime.utcnow() + datetime.timedelta(minutes=60),
+            "iat": datetime.datetime.utcnow()
+        }
+        token = jwt.encode(payload, 'secret', algorithm='HS256')
+        
         return Response({
-            "message": "success"
+            "jwt": token
         })
         
