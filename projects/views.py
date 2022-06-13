@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 
 from .forms import NewSiteForm
-from .models import Site, Technologies, Rating
+from .models import RatingContent, RatingUsability, Site, Technologies, Rating
 
 from users.models import Profile
 
@@ -78,8 +78,33 @@ def rate_site(request):
         val = request.POST.get('val')
         site = Site.objects.get(id=el_id)
         user_profile = User.objects.get(username=user.username)
-        Rating.objects.create(design=val, usability=val, content=val, site=site, author=user_profile)
+        Rating.objects.create(design=val, site=site, author=user_profile)
         
         return JsonResponse({'success':'true', 'score':val}, safe=False)
     return JsonResponse({'success', 'false'})
+
+def rate_usability(request):
+    user = request.user
+    if request.method == 'POST':
         
+        el_id = request.POST.get('el_id')
+        val = request.POST.get('val')
+        site = Site.objects.get(id=el_id)
+        user_profile = User.objects.get(username=user.username)
+        RatingUsability.objects.create(usability=val, site=site, author=user_profile)
+        
+        return JsonResponse({'success':'true', 'score':val}, safe=False)
+    return JsonResponse({'success', 'false'})
+
+def rate_content(request):
+    user = request.user
+    if request.method == 'POST':
+        
+        el_id = request.POST.get('el_id')
+        val = request.POST.get('val')
+        site = Site.objects.get(id=el_id)
+        user_profile = User.objects.get(username=user.username)
+        RatingContent.objects.create(content=val, site=site, author=user_profile)
+        
+        return JsonResponse({'success':'true', 'score':val}, safe=False)
+    return JsonResponse({'success', 'false'})
