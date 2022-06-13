@@ -106,7 +106,9 @@ const getNumericValue = (stringValue) =>{
     else if (stringValue === 'tenth'){
         numericValue = 10
     }
-    else 
+    else {
+        numericValue = 0
+    }
     return numericValue
 }
 
@@ -118,10 +120,16 @@ arr.forEach(item=> item.addEventListener('mouseover', (event)=>{
     handleSelect(event.target.id)
 }))
 
-arr.forEach(item=>item.addEventListener('click', (event)=>{
+arr.forEach(item=> item.addEventListener('click', (event)=>{
     const val = event.target.id
+    console.log(val)
+    let isSubmit = false
     form.addEventListener('submit', e=>{
         e.preventDefault()
+        if (isSubmit){
+            return
+        }
+        isSubmit = true
         const id = e.target.id
         console.log(id)
         const val_num = getNumericValue(val)
