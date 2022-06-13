@@ -144,7 +144,7 @@ arr.forEach(item=> item.addEventListener('click', (event)=>{
             },
             success: function(response){
                 console.log(response)
-                confirmBox.innerHTML = `<h6>You have rated design with ${response.score}</h6>`
+                confirmBox.innerHTML = `<h6>Thanks for your feedback <i class="fa-regular fa-face-laugh-beam"></i>. You have rated ${response.score}</h6>`
 
             },
             error: function(error){

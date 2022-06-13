@@ -49,7 +49,7 @@
             {% for site in sites %}
             <div class="col">
               <div class="card " style="border-radius: 0px;">
-                <img src="{{site.image.url}}" class="card-img-top" alt="...">
+                <a href="{% url 'view-site' site.id %}"><img src="{{site.image.url}}" class="card-img-top" alt="..."></a>
                 <div class="card-body">
                   <p class="card-title mb-3 "><small>{{site.sitename}}</small></p>
                     <div class="row mt-3">
