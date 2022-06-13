@@ -1,6 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
+
+from .forms import NewSiteForm
 from .models import Site, Technologies, Rating
 
 from users.models import Profile
@@ -18,3 +20,34 @@ def home(request):
         "current_user": user,
     }
     return render(request, 'projects/home.html', context)
+
+@login_required
+def NewSite(request):
+    user = request.user.id
+    tags_objs = []
+    
+    if request.method == "POST":
+        form = NewSiteForm(request.POST, request.FILES)
+        if form.is_valid():
+            sitename = form.cleaned_data.get('sitename')
+            url = form.cleaned_data.get('url')
+            description = form.cleaned_data.get('description')
+            category = form.cleaned_data.get('category')
+            country = form.cleaned_data.get('country')
+            technologies = form.cleaned_data.get('technologies')
+            image = form.cleaned_data.get('image')
+            tags_list = list(technologies.split(','))
+            
+            for tag in tags_list:
+                t, created = Technologies.objects.get_or_create(title=tag)
+                tags_objs.append(t)
+            p, created = Site.objects.get_or_create(sitename=sitename, url=url, description=description, category=category, country=country,technologies=technologies, image=image, user_id=user)
+            p.technologies.set(tags_objs)
+            p.save()
+            return redirect('homepage')
+        else:
+            form = NewSiteForm()
+        context = {
+            'form':form
+        }
+        return render(request, 'projects/new_project.html', context)
