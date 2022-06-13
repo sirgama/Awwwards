@@ -2,59 +2,64 @@
 {% load static %}
 
 
-<div class="container-fluid">
+<div class="container">
 {% block content %}
 
+<div class="row">
+    <div class="col-md-2"></div>
+<div class="col-md-8">
+    <div class="col mt-5">
+        <div class="card " style="border-radius: 0px;">
+          <img src="{{post.image.url}}" class="card-img-top" alt="...">
+          <div class="card-body">
+            <p class="card-title mb-3 "><small>{{post.sitename}}</small></p>
+              <div class="row mt-3">
+                  <div class="col"><p class="card-text">From {{post.country}}</p>
+                  </div>
+                  <div class="col card-text">
+                      {{post.dateuploaded}}
+                  </div>
+              </div>
+              <div class="row mt-3">
+                  <div class="col"><p class="card-text">By <small class="fw-bold">{{post.user.username}}</small></p>
+                  </div>
+                  <div class="col">
+                      <button class="btn  btn-sm btntxt"><small class="mb-1">HM</small></button>
+                      <button class="btn  btn-sm btntxt2"><small class="mb-1">DEV</small></button>
+                      <button class="btn  btn-sm btntxt3"><small class="mt-1">SOTD</small></button>
+                  </div>
+              </div>
+              <div class="row mt-4">
+                  <div class="col-md-12 text-center">
+                    <h4>Design <i class="fa-brands fa-figma"></i> </h4><div id="confirm-box">h</div>
+                    <span class="fa-regular fa-star fa-3x" id="first"></span>
+                    <span class="fa-regular fa-star fa-3x" id="second"></span>
+                    <span class="fa-regular fa-star fa-3x" id="third"></span>
+                    <span class="fa-regular fa-star fa-3x" id="fourth"></span>
+                    <span class="fa-regular fa-star fa-3x" id="fifth"></span>
+                    <span class="fa-regular fa-star fa-3x" id="sixth"></span>
+                    <span class="fa-regular fa-star fa-3x" id="seventh"></span>
+                    <span class="fa-regular fa-star fa-3x" id="eighth"></span>
+                    <span class="fa-regular fa-star fa-3x" id="ninth"></span>
+                    <span class="fa-regular fa-star fa-3x" id="tenth"></span>
+                  </div>
+                  <div class="col">
 
-
-<div class="col">
-    <div class="card mt-4 ">
-        <div class="card-header">
-            <div class="row d.flex justify-content-between">
-                <div class="col-md-10 col-sm-1">
-                    <img class="rounded-circle img-fluid royalty" src="{{post.user.profile.image.url}}"
-                        alt="" style="max-height: 40px;max-width:40px;"> <span class="fw-bold">{{post.user.user.username}}</span>
+                  </div>
+                  <div class="col">
 
                 </div>
-                <div class="col-md-2 col-sm-1"><i class="fa-solid fa-ellipsis"></i></div>
-            </div>
+              </div>
+          </div>
         </div>
-       <img src="{{post.image.url}}" class="card-img-top"
-            alt="Hollywood Sign on The Hill" height="400" width="400" style="object-fit: cover;" />
-        <div class="card-body">
-            <h5 class="card-title">
-                <div class="row d.flex justify-content-between">
-                    <div class="col-md-10 col-sm-1">
-                        <a href="#"><i class="fa-regular fa-heart m-2"></i></a> <i
-                            class="fa-regular fa-comment m-2"></i><i
-                            class="fa-solid fa-location-arrow m-2"></i>
-                    </div>
-                    <div class="col-md-2 col-sm-1"><i class="fa-regular fa-bookmark"></i></div>
-                </div>
-            </h5>
-            
-          <small> <p class="card-text"><span class="fw-bold">{{post.user.user.username}} </span> {{post.sitename}}</p></small> 
-           
-           <small><small class="text-muted">{{post.description}}</small></small>
-           <small><small class="text-muted">comments</small></small><hr>
-           {% for comment in ratings %}
-            <small class="fwbold">{{comment.design}}</small>
-           {% endfor %}
-           <small><form action="#" method="POST">
-            {%csrf_token%}
-            <div class="form-group mb-3">
-              <input type="text" class="form-control" name="comment" placeholder="Comment" />
-              <button class="btn btn-success" type="submit">Comment</button>
-            </div>
-          </form></small> 
-        </div>
-        <div class="card-footer">
-            
-
-        </div>
-    </div>
+      </div>
+      <div class="container">
+          <h2>USER VOTES</h2>
+      </div>
+</div>
+<div class="col-md-2"></div>
 </div>
 
 
-
 {% endblock %}
+</div>

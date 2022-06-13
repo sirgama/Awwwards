@@ -44,6 +44,9 @@ class Rating(models.Model):
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     site = models.ForeignKey(Site, on_delete=models.CASCADE)
     
+    def __str__(self):
+        return str(self.pk)
+    
     def save_rating(self):
         self.save()
         
