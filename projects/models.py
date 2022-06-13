@@ -9,6 +9,8 @@ from cloudinary.models import CloudinaryField
 class Technologies(models.Model):
     title = models.CharField(max_length=20)
      
+    def __str__(self):
+        return self.title
 
 
 
@@ -22,3 +24,15 @@ class Site(models.Model):
     user =  models.ForeignKey(User, on_delete=models.CASCADE)
     technlogies = models.ManyToManyField(Technologies, related_name='technologies')
     likes = models.IntegerField(default=0)
+    
+    def __str__(self):
+        return self.sitename
+    
+    def get_absolute_url(self):
+        return reverse('homepage')
+    @classmethod
+    def getSites(cls):
+        allSites = cls.objects.all()
+        return allSites
+
+
