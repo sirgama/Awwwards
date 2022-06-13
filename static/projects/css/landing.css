@@ -8,6 +8,9 @@
   .checked2 {
     color: rgb(0, 255, 30);
   }
+  .checked3 {
+    color: rgb(255, 0, 0);
+  }
 .my-btn{
     background-color: inherit !important;
     border: 0 !important;

@@ -30,43 +30,43 @@ const handleStarSelect23 = (size) => {
 console.log(onee)
 const handleSelect23 = (selection) => {
     switch(selection){
-        case 'first2':{
+        case 'first23':{
             handleStarSelect23(1)
             return
         }
-        case 'second2':{
+        case 'second23':{
             handleStarSelect23(2)
             return
         }
-        case 'third2':{
+        case 'third23':{
             handleStarSelect23(3)
             return
         }
-        case 'fourth2':{
+        case 'fourth23':{
             handleStarSelect23(4)
             return
         }
-        case 'fifth2':{
+        case 'fifth23':{
             handleStarSelect23(5)
             return
         }
-        case 'sixth2':{
+        case 'sixth23':{
             handleStarSelect23(6)
             return
         }
-        case 'seventh2':{
+        case 'seventh23':{
             handleStarSelect23(7)
             return
         }
-        case 'eighth2':{
+        case 'eighth23':{
             handleStarSelect23(8)
             return
         }
-        case 'ninth2':{
+        case 'ninth23':{
             handleStarSelect23(9)
             return
         }
-        case 'tenth2':{
+        case 'tenth23':{
             handleStarSelect23(10)
             return
         }
@@ -113,7 +113,7 @@ const getNumericValue23 = (stringValue) =>{
 }
 
 
-if (onee){
+if (oneee){
     const arr = [oneee, twoee, threeee, fouree, fiveee, sixee, sevenee, eightee, nineee, tenee]
 
 arr.forEach(item=> item.addEventListener('mouseover', (event)=>{
@@ -144,12 +144,12 @@ arr.forEach(item=> item.addEventListener('click', (event)=>{
             },
             success: function(response){
                 console.log(response)
-                confirmBox2.innerHTML = `<h6>You have rated content with ${response.score}</h6>`
+                confirmBox23.innerHTML = `<h6>You have rated content with ${response.score}</h6>`
 
             },
             error: function(error){
                 console.log(error)
-                confirmBox2.innerHTML = `<h6> Sorry, something went wrong on the server</h6>`
+                confirmBox23.innerHTML = `<h6> Sorry, something went wrong on the server</h6>`
             }
         })
     })
