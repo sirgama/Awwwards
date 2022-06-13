@@ -34,6 +34,7 @@
                     <h4>Design <i class="fa-brands fa-figma"></i> </h4><div id="confirm-box"></div>
                 <form action="" method="POST" class="rate-form" id="{{post.id}}">
                     {% csrf_token %}
+                    <input type="hidden" name="form_type" value="formOne">
                     <button type="submit" class="fa fa-star my-btn fa-3x" id="first"></button>
                     <button type="submit" class="fa fa-star my-btn fa-3x" id="second"></button>
                     <button type="submit" class="fa fa-star my-btn fa-3x" id="third"></button>
@@ -53,6 +54,7 @@
                     <h4>Design <i class="fa-brands fa-figma"></i> </h4><div id="confirm-box2"></div>
                 <form action="" method="POST" class="rate-form2" id="{{post.id}}">
                     {% csrf_token %}
+                    <input type="hidden" name="form_type" value="formTwo">
                     <button type="submit" class="fa fa-star my-btn fa-3x" id="first2"></button>
                     <button type="submit" class="fa fa-star my-btn fa-3x" id="second2"></button>
                     <button type="submit" class="fa fa-star my-btn fa-3x" id="third2"></button>

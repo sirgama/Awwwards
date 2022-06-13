@@ -1,22 +1,22 @@
 console.log('Homes 2')
 
-const one = document.getElementById('first2')
-const two = document.getElementById('second2')
-const three = document.getElementById('third2')
-const four = document.getElementById('fourth2')
-const five = document.getElementById('fifth2')
-const six = document.getElementById('sixth2')
-const seven = document.getElementById('seventh2')
-const eight = document.getElementById('eighth2')
-const nine = document.getElementById('ninth2')
-const ten = document.getElementById('tenth2')
+const onee = document.getElementById('first2')
+const twoe = document.getElementById('second2')
+const threee = document.getElementById('third2')
+const foure = document.getElementById('fourth2')
+const fivee = document.getElementById('fifth2')
+const sixe = document.getElementById('sixth2')
+const sevene = document.getElementById('seventh2')
+const eighte = document.getElementById('eighth2')
+const ninee = document.getElementById('ninth2')
+const tene = document.getElementById('tenth2')
 
-const form = document.querySelector('.rate-form2')
-const confirmBox = document.getElementById('confirm-box2')
-const csrf = document.getElementsByName('csrfmiddlewaretoken')
+const form2 = document.querySelector('.rate-form2')
+const confirmBox2 = document.getElementById('confirm-box2')
+const csrf2 = document.getElementsByName('csrfmiddlewaretoken')
 
-const handleStarSelect = (size) => {
-    const children = form.children
+const handleStarSelect2 = (size) => {
+    const children = form2.children
     for (let i=0; i< children.length; i++){
         if(i<= size){
             children[i].classList.add('checked')
@@ -27,53 +27,53 @@ const handleStarSelect = (size) => {
 }
 
 
-console.log(one)
-const handleSelect = (selection) => {
+console.log(onee)
+const handleSelect2 = (selection) => {
     switch(selection){
         case 'first2':{
-            handleStarSelect(1)
+            handleStarSelect2(1)
             return
         }
         case 'second2':{
-            handleStarSelect(2)
+            handleStarSelect2(2)
             return
         }
         case 'third2':{
-            handleStarSelect(3)
+            handleStarSelect2(3)
             return
         }
         case 'fourth2':{
-            handleStarSelect(4)
+            handleStarSelect2(4)
             return
         }
         case 'fifth2':{
-            handleStarSelect(5)
+            handleStarSelect2(5)
             return
         }
         case 'sixth2':{
-            handleStarSelect(6)
+            handleStarSelect2(6)
             return
         }
         case 'seventh2':{
-            handleStarSelect(7)
+            handleStarSelect2(7)
             return
         }
         case 'eighth2':{
-            handleStarSelect(8)
+            handleStarSelect2(8)
             return
         }
         case 'ninth2':{
-            handleStarSelect(9)
+            handleStarSelect2(9)
             return
         }
         case 'tenth2':{
-            handleStarSelect(10)
+            handleStarSelect2(10)
             return
         }
     }
 }
 
-const getNumericValue = (stringValue) =>{
+const getNumericValue2 = (stringValue) =>{
     let numericValue;
     if (stringValue === 'first2'){
         numericValue = 1
@@ -113,18 +113,18 @@ const getNumericValue = (stringValue) =>{
 }
 
 
-if (one){
-    const arr = [one, two, three, four, five, six, seven, eight, nine, ten]
+if (onee){
+    const arr = [onee, twoe, threee, foure, fivee, sixe, sevene, eighte, ninee, tene]
 
 arr.forEach(item=> item.addEventListener('mouseover', (event)=>{
-    handleSelect(event.target.id)
+    handleSelect2(event.target.id)
 }))
 
 arr.forEach(item=> item.addEventListener('click', (event)=>{
     const val = event.target.id
     console.log(val)
     let isSubmit = false
-    form.addEventListener('submit', e=>{
+    form2.addEventListener('submit', e=>{
         e.preventDefault()
         if (isSubmit){
             return
@@ -132,24 +132,24 @@ arr.forEach(item=> item.addEventListener('click', (event)=>{
         isSubmit = true
         const id = e.target.id
         console.log(id)
-        const val_num = getNumericValue(val)
+        const val_num = getNumericValue2(val)
 
         $.ajax({
             type: 'POST',
-            url: '/rate2/',
+            url: '/rateusability/',
             data: {
-                'csrfmiddlewaretoken': csrf[0].value,
+                'csrf2middlewaretoken': csrf2[0].value,
                 'el_id': id,
                 'val': val_num,
             },
             success: function(response){
                 console.log(response)
-                confirmBox.innerHTML = `<h6>You have rated design with ${response.score}</h6>`
+                confirmBox2.innerHTML = `<h6>You have rated usability with ${response.score}</h6>`
 
             },
             error: function(error){
                 console.log(error)
-                confirmBox.innerHTML = `<h6> Sorry, something went wrong on the server</h6>`
+                confirmBox2.innerHTML = `<h6> Sorry, something went wrong on the server</h6>`
             }
         })
     })

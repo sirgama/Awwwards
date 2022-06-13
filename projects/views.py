@@ -7,6 +7,7 @@ from .forms import NewSiteForm
 from .models import RatingContent, RatingUsability, Site, Technologies, Rating
 
 from users.models import Profile
+from django.views.decorators.csrf import csrf_exempt
 
 # Create your views here.
 
@@ -83,6 +84,7 @@ def rate_site(request):
         return JsonResponse({'success':'true', 'score':val}, safe=False)
     return JsonResponse({'success', 'false'})
 
+@csrf_exempt
 def rate_usability(request):
     user = request.user
     if request.method == 'POST':
