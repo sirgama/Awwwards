@@ -1,3 +1,4 @@
+from email.policy import default
 from django.db import models
 from django.contrib.auth.models import User
 from django.utils import timezone
@@ -38,7 +39,7 @@ class Site(models.Model):
 
 
 class Rating(models.Model):
-    design = models.CharField(max_length=2,null=True, blank=True)
+    design = models.IntegerField(default=0,null=True, blank=True)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     site = models.ForeignKey(Site, on_delete=models.CASCADE)
     
@@ -55,7 +56,7 @@ class Rating(models.Model):
         return ratings  
 
 class RatingUsability(models.Model):
-    usability = models.CharField(max_length=2,null=True, blank=True)
+    usability = models.IntegerField(default=0,null=True, blank=True)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     site = models.ForeignKey(Site, on_delete=models.CASCADE)
     
@@ -72,7 +73,7 @@ class RatingUsability(models.Model):
         return ratings  
 
 class RatingContent(models.Model):
-    content = models.CharField(max_length=2,null=True, blank=True)
+    content = models.IntegerField(default=0,null=True, blank=True)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     site = models.ForeignKey(Site, on_delete=models.CASCADE)
     
