@@ -26,7 +26,7 @@ def NewSite(request):
     user = request.user.id
     tags_objs = []
     
-    if request.method == "POST":
+    if request.method == 'POST':
         form = NewSiteForm(request.POST, request.FILES)
         if form.is_valid():
             sitename = form.cleaned_data.get('sitename')
@@ -34,20 +34,20 @@ def NewSite(request):
             description = form.cleaned_data.get('description')
             category = form.cleaned_data.get('category')
             country = form.cleaned_data.get('country')
-            technologies = form.cleaned_data.get('technologies')
+            technolog = form.cleaned_data.get('technologies')
             image = form.cleaned_data.get('image')
-            tags_list = list(technologies.split(','))
+            tags_list = list(technolog.split(','))
             
             for tag in tags_list:
                 t, created = Technologies.objects.get_or_create(title=tag)
                 tags_objs.append(t)
-            p, created = Site.objects.get_or_create(sitename=sitename, url=url, description=description, category=category, country=country,technologies=technologies, image=image, user_id=user)
+            p, created = Site.objects.get_or_create(sitename=sitename, livelink=url, description=description, category=category, country=country, image=image, user_id=user)
             p.technologies.set(tags_objs)
             p.save()
             return redirect('homepage')
-        else:
-            form = NewSiteForm()
-        context = {
-            'form':form
-        }
-        return render(request, 'projects/new_project.html', context)
+    else:
+        form = NewSiteForm()
+    context = {
+        'form':form
+    }
+    return render(request, 'projects/new_project.html', context)

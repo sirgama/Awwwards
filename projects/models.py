@@ -23,7 +23,7 @@ class Site(models.Model):
     dateuploaded = models.DateTimeField(default=timezone.now)
     country = models.CharField(max_length=100)
     user =  models.ForeignKey(User, on_delete=models.CASCADE)
-    technlogies = models.ManyToManyField(Technologies, related_name='technologies')
+    technologies = models.ManyToManyField(Technologies, related_name='technologies')
     likes = models.IntegerField(default=0)
     
     def __str__(self):

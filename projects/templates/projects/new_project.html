@@ -1,9 +1,9 @@
-{% extends 'posts/base.html' %}
+{% extends 'projects/base.html' %}
 {% load static %}
 {% load crispy_forms_tags %}
 
 {% block content %}
-{% include 'posts/navbar.html' %}
+
 <div class="container mt-5">
     <div class="container mt-5">
                             
@@ -16,7 +16,7 @@
                                     
                                 <p class=" text-muted text-center fw-bold"> Create anew post from your memories<br> share with your friends.</p>
                                 
-                                <form class="container" action="" method="POST" enctype="multipart/form-data">
+                                <form class="container bootstrap4" action="" method="POST" enctype="multipart/form-data">
                                     
                                     
                                     {% csrf_token %}
