@@ -19,6 +19,7 @@ class Site(models.Model):
     image = CloudinaryField('image')
     description = models.TextField()
     livelink =  models.URLField(max_length=200)
+    category = models.CharField(max_length=300, null=True, blank=True)
     dateuploaded = models.DateTimeField(default=timezone.now)
     country = models.CharField(max_length=100)
     user =  models.ForeignKey(User, on_delete=models.CASCADE)
