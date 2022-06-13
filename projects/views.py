@@ -1,3 +1,4 @@
+from django.http import JsonResponse
 from django.shortcuts import redirect, render
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
@@ -68,3 +69,15 @@ def View_site(request, pk):
         'ratings':ratings
     }
     return render(request, 'projects/singlesite.html', context)
+
+def rate_site(request):
+    if request.method == 'POST':
+        
+        el_id = request.POST.get('el_id')
+        val = request.POST.get('val')
+        obj = Rating.objects.get(id=el_id)
+        obj.score = val
+        obj.save()
+        return JsonResponse({'success':'true', 'score':val}, safe=False)
+    return JsonResponse({'success', 'false'})
+        
