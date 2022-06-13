@@ -51,3 +51,20 @@ def NewSite(request):
         'form':form
     }
     return render(request, 'projects/new_project.html', context)
+
+
+@login_required
+def View_site(request, pk):
+    post = Site.objects.get(id=pk)
+    
+    try:
+        ratings = Rating.get_ratings(pk)
+        
+    except:
+        ratings = None
+    
+    context = {
+        'post':post,
+        'ratings':ratings
+    }
+    return render(request, 'projects/singlesite.html', context)
