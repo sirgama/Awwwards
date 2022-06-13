@@ -98,6 +98,7 @@ def rate_usability(request):
         return JsonResponse({'success':'true', 'score':val}, safe=False)
     return JsonResponse({'success', 'false'})
 
+@csrf_exempt
 def rate_content(request):
     user = request.user
     if request.method == 'POST':
