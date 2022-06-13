@@ -39,8 +39,40 @@ class Site(models.Model):
 
 class Rating(models.Model):
     design = models.CharField(max_length=2,null=True, blank=True)
+    author = models.ForeignKey(User, on_delete=models.CASCADE)
+    site = models.ForeignKey(Site, on_delete=models.CASCADE)
+    
+    def __str__(self):
+        return str(self.pk)
+    
+    def save_rating(self):
+        self.save()
+        
+        
+    @classmethod
+    def get_ratings(cls,id):
+        ratings = cls.objects.filter(site_id=id)
+        return ratings  
+
+class RatingUsability(models.Model):
     usability = models.CharField(max_length=2,null=True, blank=True)
-    content = models.CharField(max_length=2, null=True, blank=True)
+    author = models.ForeignKey(User, on_delete=models.CASCADE)
+    site = models.ForeignKey(Site, on_delete=models.CASCADE)
+    
+    def __str__(self):
+        return str(self.pk)
+    
+    def save_rating(self):
+        self.save()
+        
+        
+    @classmethod
+    def get_ratings(cls,id):
+        ratings = cls.objects.filter(site_id=id)
+        return ratings  
+
+class RatingContent(models.Model):
+    content = models.CharField(max_length=2,null=True, blank=True)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     site = models.ForeignKey(Site, on_delete=models.CASCADE)
     
