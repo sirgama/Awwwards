@@ -41,11 +41,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    
+    'cloudinary',
     'projects',
     'users',
     'rest_framework',
-    'cloudinary',
+    
     'crispy_forms',
     'corsheaders',
 ]
