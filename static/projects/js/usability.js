@@ -19,9 +19,9 @@ const handleStarSelect2 = (size) => {
     const children = form2.children
     for (let i=0; i< children.length; i++){
         if(i<= size){
-            children[i].classList.add('checked')
+            children[i].classList.add('checked2')
         } else {
-            children[i].classList.remove('checked')
+            children[i].classList.remove('checked2')
         }
     }
 }

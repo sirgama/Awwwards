@@ -5,6 +5,9 @@
 .checked {
     color: rgb(184, 2, 135);
   }
+  .checked2 {
+    color: rgb(0, 255, 30);
+  }
 .my-btn{
     background-color: inherit !important;
     border: 0 !important;
