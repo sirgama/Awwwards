@@ -126,7 +126,24 @@ arr.forEach(item=>item.addEventListener('click', (event)=>{
         console.log(id)
         const val_num = getNumericValue(val)
 
-        
+        $.ajax({
+            type: 'POST',
+            url: '/rate/',
+            data: {
+                'csrfmiddlewaretoken': csrf[0].value,
+                'el_id': id,
+                'val': val_num,
+            },
+            success: function(response){
+                console.log(response)
+                confirmBox.innerHTML = `<h6>You have rated design with ${response.score}</h6>`
+
+            },
+            error: function(error){
+                console.log(error)
+                confirmBox.innerHTML = `<h6> Sorry, something went wrong on the server</h6>`
+            }
+        })
     })
 }))
 

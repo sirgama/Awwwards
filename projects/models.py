@@ -38,9 +38,9 @@ class Site(models.Model):
 
 
 class Rating(models.Model):
-    design = models.IntegerField(default=0)
-    usability = models.IntegerField(default=0)
-    content = models.IntegerField(default=0)
+    design = models.CharField(max_length=2,null=True, blank=True)
+    usability = models.CharField(max_length=2,null=True, blank=True)
+    content = models.CharField(max_length=2, null=True, blank=True)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     site = models.ForeignKey(Site, on_delete=models.CASCADE)
     

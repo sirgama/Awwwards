@@ -71,13 +71,15 @@ def View_site(request, pk):
     return render(request, 'projects/singlesite.html', context)
 
 def rate_site(request):
+    user = request.user
     if request.method == 'POST':
         
         el_id = request.POST.get('el_id')
         val = request.POST.get('val')
-        obj = Rating.objects.get(id=el_id)
-        obj.score = val
-        obj.save()
+        site = Site.objects.get(id=el_id)
+        user_profile = User.objects.get(username=user.username)
+        Rating.objects.create(design=val, usability=val, content=val, site=site, author=user_profile)
+        
         return JsonResponse({'success':'true', 'score':val}, safe=False)
     return JsonResponse({'success', 'false'})
         
