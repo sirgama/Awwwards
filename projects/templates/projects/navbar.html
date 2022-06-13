@@ -2,8 +2,8 @@
 
 
 
-
-
+{% if user.is_authenticated %}
+{% else %}
 <nav class="navbar navbar-dark nav3" style="background-color: black;">
     <div class="container-fluid">
       <span class="navbar-text m-auto text-white nav3text">
@@ -58,7 +58,7 @@
   <!-- Navbar -->
 
 
-
+{% endif %}
 
 
 
@@ -106,19 +106,68 @@
       <!-- Center elements -->
       <ul class="navbar-nav flex-row d-none d-md-flex">
           <li class="nav-item ">
-        <img class="img-responsive ms-5" src="{% static 'projects/assets/awwards.svg' %}" height="25" alt="">
+        <a href="{% url 'homepage' %}"><img class="img-responsive ms-5" src="{% static 'projects/assets/awwards.svg' %}" height="25" alt=""></a>
         </li>
       </ul>
       <!-- Center elements -->
   
       <!-- Right elements -->
       <ul class="navbar-nav flex-row">
-        
+        {% if user.is_authenticated %}
+        <li class="nav-item dropdown me-5 me-lg-1 mt-3">
+            <a class="nav-link dropdown-toggle hidden-arrow"
+            href="#"
+            id="DropdownMenuLink"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false">
+            <span class="text-dark ">{{user.username|upper}}</span>
+              <img
+                src="{{user.profile.image.url}}"
+                class="rounded-circle me-4"
+                height="30"
+                alt="{{user.username}}"
+                loading="lazy"
+              />
+              
+            </a>
+            <ul
+              class="dropdown-menu dropdown-menu-end"
+              aria-labelledby="DropdownMenuLink"
+            >
+              <li>
+                <a class="dropdown-item" href="{% url 'profile' %}"><i class="fa-regular fa-user"></i> Upgrade to <strong class="lefty"> Pro </strong> </a>
+              </li><hr>
+              <li>
+                <a class="dropdown-item" href="{% url 'profile' %}"><i class="fa-regular fa-user"></i> Profile</a>
+              </li>
+              <li>
+                <a class="dropdown-item" href="{% url 'profile' %}"><i class="fa-regular fa-bookmark"></i> Collections</a>
+              </li>
+              <li>
+                <a class="dropdown-item" href="{% url 'profile' %}"><i class="fa-solid fa-sliders"></i> Courses</a>
+              </li>
+              <li>
+                <a class="dropdown-item" href="{% url 'profile' %}"><i class="fa-regular fa-user"></i> Notifications</a>
+              </li><hr>
+              <li>
+                <a class="dropdown-item" href="{% url 'profile' %}"><i class="fa-regular fa-user"></i> Settings</a>
+              </li>
+              <li>
+                <a class="dropdown-item" href="{% url 'profile' %}"><i class="fa-regular fa-user"></i> Billing</a>
+              </li>
+              <li>
+                <a class="dropdown-item" href="{% url 'logout' %}"><i class="fa-solid fa-repeat"></i> logout</a>
+              </li>
+            </ul>
+          </li>
+        {% else %}
         <li class="nav-item me-3 me-lg-1">
-            <a class="nav-link" href="#">
+            <a class="nav-link" href="{% url 'register' %}">
                <small> <p class=" text-dark mt-3 nav4text">REGISTER/LOG IN</p></small>
             </a>
           </li>
+          {% endif %}
         <li class="nav-item submitbtn">
           <a class="nav-link text-white m-3 " href="#">
            <small class=""> SUBMIT YOUR SITE!</small>

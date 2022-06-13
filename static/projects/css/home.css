@@ -89,6 +89,12 @@
       font-weight: 600;
       color: white;
   }
+  .lefty{
+      background-color: rgb(23, 21, 21);
+      color: white;
+      border-radius: 7px;
+      width: 15px;
+  }
   .btntxt2, .btntxt2:hover{
     background-color:#8253ee ;
     border-radius: 10px;
