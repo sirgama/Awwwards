@@ -72,11 +72,62 @@ const handleSelect = (selection) => {
         }
     }
 }
+
+const getNumericValue = (stringValue) =>{
+    let numericValue;
+    if (stringValue === 'first'){
+        numericValue = 1
+    }
+    else if (stringValue === 'second'){
+        numericValue = 2
+    }
+    else if (stringValue === 'third'){
+        numericValue = 3
+    }
+    else if (stringValue === 'fourth'){
+        numericValue = 4
+    }
+
+    else if (stringValue === 'fifth'){
+        numericValue = 5
+    }
+    else if (stringValue === 'sixth'){
+        numericValue = 6
+    }
+    else if (stringValue === 'seventh'){
+        numericValue = 7
+    }
+    else if (stringValue === 'eighth'){
+        numericValue = 8
+    }
+    else if (stringValue === 'ninth'){
+        numericValue = 9
+    }
+    else if (stringValue === 'tenth'){
+        numericValue = 10
+    }
+    else 
+    return numericValue
+}
+
+
 if (one){
     const arr = [one, two, three, four, five, six, seven, eight, nine, ten]
 
 arr.forEach(item=> item.addEventListener('mouseover', (event)=>{
     handleSelect(event.target.id)
+}))
+
+arr.forEach(item=>item.addEventListener('click', (event)=>{
+    const val = event.target.id
+    form.addEventListener('submit', e=>{
+        e.preventDefault()
+        const id = e.target.id
+        console.log(id)
+        const val_num = getNumericValue(val)
+
+        
+    })
 }))
 
 }
