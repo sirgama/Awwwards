@@ -36,3 +36,18 @@ class Site(models.Model):
         return allSites
 
 
+class Rating(models.Model):
+    design = models.IntegerField(default=0)
+    usability = models.IntegerField(default=0)
+    content = models.IntegerField(default=0)
+    author = models.ForeignKey(User, on_delete=models.CASCADE)
+    site = models.ForeignKey(Site, on_delete=models.CASCADE)
+    
+    def save_rating(self):
+        self.save()
+        
+        
+    @classmethod
+    def get_ratings(cls,id):
+        ratings = cls.objects.filter(site_id=id)
+        return ratings  
