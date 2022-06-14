@@ -5,7 +5,7 @@ from django.contrib.auth.decorators import login_required
 
 from .forms import NewSiteForm
 from .models import RatingContent, RatingUsability, Site, Technologies, Rating
-
+import datetime as dt
 from users.models import Profile
 from django.views.decorators.csrf import csrf_exempt
 
@@ -15,11 +15,12 @@ def home(request):
     user = request.user
     site_items = Site.objects.all()
     all_users = User.objects.all()
-    
+    date = dt.date.today()
     context = {
         "sites":site_items,
         "users": all_users,
         "current_user": user,
+        "date":date,
     }
     return render(request, 'projects/home.html', context)
 def search_results(request):
