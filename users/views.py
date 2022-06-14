@@ -6,22 +6,23 @@ from rest_framework.response import Response
 from rest_framework.renderers import TemplateHTMLRenderer
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+
+from projects.models import Site
 from .forms import ProfileUpdateForm, UserRegisterForm, UserUpdateForm
-from .serializers import UserSerializer
+from .serializers import SiteSerializer, UserSerializer
 from django.contrib.auth.models import User
 from rest_framework.exceptions import AuthenticationFailed
 import jwt, datetime
 
 # Create your views here.
 class RegisterView(APIView):
-    renderer_classes = [TemplateHTMLRenderer]
-    template_name = 'users/register.html'
+  
     def post(self, request):
         serializer = UserSerializer(data=request.data)
         if serializer.is_valid():
             return Response({"serializer":serializer})
         serializer.save()
-        return redirect('login')
+        return Response(serializer.data)
     
 class ProfileList(APIView):
     renderer_classes = [TemplateHTMLRenderer]
@@ -30,11 +31,15 @@ class ProfileList(APIView):
     def get(self, request):
         queryset = User.objects.all()
         return Response({'profiles':queryset})
-class LoginUser(APIView):
+
+class SitesList(APIView):
     renderer_classes = [TemplateHTMLRenderer]
-    template_name = 'users/login.html'
-    def get(request):
-        serializer = UserSerializer()
+    template_name = 'users/list.html'
+    
+    def get(self, request):
+        queryset = Site.objects.all()
+        
+        return Response({'sites':queryset})
         
     
 class LoginView(APIView):
