@@ -55,12 +55,12 @@ Activate virtual environment using python3.9 as default handler
 Install dependancies that will create an environment for the app to run `pip3 install -r requirements.txt`
 ####  Create the Database
     - psql
-    - CREATE DATABASE awwwards;
+    - CREATE DATABASE awwards;
 ####  .env file
 Create .env file and paste paste the following filling where appropriate:
 
     SECRET_KEY = '<Secret_key>'
-    DBNAME = 'awwwards'
+    DBNAME = 'awwards'
     USER = '<Username>'
     PASSWORD = '<password>'
     DEBUG = True
@@ -75,7 +75,7 @@ Create .env file and paste paste the following filling where appropriate:
 
 The application is deployed on Heroku and is live on this link:
 
-[https://awwwards-ms.herokuapp.com/](https://awwwards-ms.herokuapp.com/)
+[https://awwards-ms.herokuapp.com/](https://awwards-ms.herokuapp.com/)
 
 ## Built With
 
