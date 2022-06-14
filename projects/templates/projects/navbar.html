@@ -204,11 +204,12 @@
     <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
   </div>
   <div class="offcanvas-body all">
-    <form class="d-flex input-group w-auto">
+    <form class="d-flex input-group w-auto" role="search" action="{% url 'search_results' %}">
         <input
-          type="search"
+          type="text"
           class="form-control rounded"
           placeholder="Search for Projects"
+          name="project"
           aria-label="Search"
           aria-describedby="search-addon"
         />
