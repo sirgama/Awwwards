@@ -32,16 +32,17 @@ This is a clone of the popular awwwards app  built using Python - Django.
 
 To clone the repository, run:
 
-    git clone https://github.com/sirgama/awwwards
+    git clone https://github.com/sirgama/awwards
 
 Then navigating to the cloned directory:
 
-    cd awwwards
+    cd awwards
 
 
 ### Prerequisite
-This awwwards Clone project requires a prerequisite understanding of the following:
+This awwards Clone project requires a prerequisite understanding of the following:
 - Django Framework
+- Django REST API
 - Python3.9
 - Postgres
 - Python virtualenv
