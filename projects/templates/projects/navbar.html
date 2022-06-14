@@ -136,11 +136,9 @@
               aria-labelledby="DropdownMenuLink"
             >
               <li>
-                <a class="dropdown-item" href="{% url 'profile' %}"><i class="fa-regular fa-user"></i> Upgrade to <strong class="lefty"> Pro </strong> </a>
-              </li><hr>
-              <li>
                 <a class="dropdown-item" href="{% url 'profile' %}"><i class="fa-regular fa-user"></i> Profile</a>
-              </li>
+              </li><hr>
+             
               <li>
                 <a class="dropdown-item" href="{% url 'profile' %}"><i class="fa-regular fa-bookmark"></i> Collections</a>
               </li>
@@ -169,7 +167,7 @@
           </li>
           {% endif %}
         <li class="nav-item submitbtn">
-          <a class="nav-link text-white m-3 " href="#">
+          <a class="nav-link text-white m-3 " href="{% url 'new-site'%}">
            <small class=""> SUBMIT YOUR SITE!</small>
           </a>
         </li>
