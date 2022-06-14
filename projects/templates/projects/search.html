@@ -1,0 +1,71 @@
+{% extends 'projects/base.html' %}
+
+{% load static %}
+
+{% block content %}
+<div class="container-fluid">
+
+<div class="container">
+<div class="row text-center ">
+    {% if sites %}
+    <h5 class="text-center mt-4">We've found {{sites|length}}  from what you searched <strong>'{{message}}'</strong> </h5>
+    {% else %}
+    <h1 class="text-center mt-5">Ooops, didn't find anything... Try searching for another project. </h1>
+    
+<img src="{% static 'projects/assets/serch.png' %}" alt="" class="img-responsive ">
+    
+
+    
+    {% endif %}
+</div>
+
+
+
+
+    <div class="row mt-5">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+
+            <div class="row row-cols-1 row-cols-md-3 g-5 mt-5" >
+                {% if sites %}
+                {% for site in sites %}
+                <div class="col mt-5">
+                  <div class="card " style="border-radius: 0px;">
+                    <a href="{% url 'view-site' site.id %}"><img src="{{site.image.url}}" class="card-img-top" alt="..."></a>
+                    <div class="card-body">
+                      <p class="card-title mb-3 "><small>{{site.sitename}}</small></p>
+                        <div class="row mt-3">
+                            <div class="col"><p class="card-text">From {{site.country}}</p>
+                            </div>
+                            <div class="col card-text">
+                                {{site.dateuploaded}}
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col"><p class="card-text">By <small class="fw-bold">{{site.user.username}}</small></p>
+                            </div>
+                            <div class="col">
+                                <button class="btn  btn-sm btntxt"><small class="mb-1">HM</small></button>
+                                <button class="btn  btn-sm btntxt2"><small class="mb-1">DEV</small></button>
+                                <button class="btn  btn-sm btntxt3"><small class="mt-1">SOTD</small></button>
+                            </div>
+                        </div>
+                    </div>
+                  </div>
+                </div>
+                {% endfor %}
+                {% endif %}
+              </div>
+
+        </div>
+        <div class="col-md-2"></div>
+    </div>
+
+</div>
+
+
+</div>
+
+
+
+{% endblock %}
