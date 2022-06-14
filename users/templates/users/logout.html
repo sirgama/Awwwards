@@ -1,14 +1,15 @@
 {% extends 'users/base.html' %}
 {% load static %}
-
+<div class="all">
 {% block content %}
-<div class="container mt-5">
-<h6 class="text-center mt-5 fw-bold"><img src="{% static 'images/download.png' %}" alt="" class="img-fluid " height="30" width="30"> You have been logged out</h6>
+<div class="container mt-5 all">
+<h4 class="text-center mt-5 fw-bold"> Sad to see you leave <i class="fa-regular fa-face-meh fa-2x mt-3"></i></h4>
+<h6 class="text-center mt-5 "> But we hope to see you again!. If it was a mistake, You can log in again</h6>
     <div class="border-top pt-3 text-center">
         <small class="text-muted text-center"> 
-            Log in again? <a class="ml-2" href="{% url 'login' %}">Login</a>
+            Log in again <i class="fa-regular fa-face-grin-tongue-wink fa-1x"></i> <a class="ml-2" href="{% url 'login' %}">Login</a>
 
         </small>
     </div>
 </div>
-{% endblock %}
+{% endblock %}</div>
