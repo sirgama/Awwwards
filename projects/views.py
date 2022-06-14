@@ -22,6 +22,18 @@ def home(request):
         "current_user": user,
     }
     return render(request, 'projects/home.html', context)
+def search_results(request):
+    
+    if 'project' in request.GET and request.GET["project"]:
+        search_term = request.GET.get("project")
+        searched_projects = Site.search_by_sitename(search_term)
+        message = f"{search_term}"
+
+        return render(request, 'projects/search.html',{"message":message,"sites": searched_projects})
+
+    else:
+        message = "You haven't searched for any projects"
+        return render(request, 'projects/search.html',{"message":message})
 
 @login_required
 def NewSite(request):
