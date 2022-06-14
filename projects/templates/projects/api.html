@@ -5,4 +5,33 @@
 {% block content %}
 
 
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 mt-5">
+            <h3 class="fw-bold">
+             <u> Api End Points </u>  
+              </h3>
+              <p class="mt-2"> The following endpoints are currently available for this project: </p>
+              <p>
+                  <ul>
+                      <li>Login: api/login</li>
+                      <li>register: api/register</li>
+                      <li>logout: api/logout</li>
+                      <li>profiles: api/profiles</li>
+                  </ul>
+              </p>
+              <p>Note: JWT session is valid for an hour.</p>
+              <p>More endpoints will be added.</p>
+              <p class="mt-3">If you'd love to test the Api endpoints manualy, <a href="{% url 'api-log'%}"><button class="btn btn-dark btn-block">click here</button> </a></p>
+        </div>
+        <div class="col-md-6">
+            <img class="img-responsive float-sm-start float-md-end float-lg-end hero-pic" src="{% static 'projects/assets/network.svg' %}"
+        alt="hero photo" />
+        </div>
+    </div>
+</div>
+
+
+
 {% endblock %}
