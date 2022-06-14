@@ -9,6 +9,9 @@
 
     font-family: 'Poppins', sans-serif;
 }
+.all{
+    background-color: #f5f7f6;
+}
 .submitbtn{
     background-color: #202221;
     color: white;

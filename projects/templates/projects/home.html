@@ -4,7 +4,7 @@
 
 {% block content %}
 
-<div class="">
+<div class="all">
     <!-- Start of hero section -->
 
     <header>
@@ -40,14 +40,15 @@
 
     <!-- End of hero section -->
 </div>
-<div class="container-fluid projectsarea">
-    <div class="m-5">
-        <h6 class="fw-bold">Nominees We need your vote!</h6>
+<div class="container-fluid projectsarea all">
+    <div class="all">
+        
     </div>
     <div class="container-fluid">
+        <h6 class="fw-bold mt-5">Nominees We need your vote!</h6>
         <div class="row row-cols-1 row-cols-md-3 g-5">
             {% for site in sites %}
-            <div class="col">
+            <div class="col mt-5">
               <div class="card " style="border-radius: 0px;">
                 <a href="{% url 'view-site' site.id %}"><img src="{{site.image.url}}" class="card-img-top" alt="..."></a>
                 <div class="card-body">
