@@ -35,6 +35,12 @@ def search_results(request):
         message = "You haven't searched for any projects"
         return render(request, 'projects/search.html',{"message":message})
 
+def apipage(request):
+    
+    
+   
+    return render(request, 'projects/api.html')
+
 @login_required
 def NewSite(request):
     user = request.user.id
