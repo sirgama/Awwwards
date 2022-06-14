@@ -181,6 +181,7 @@ cloudinary.config(
 )
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+django_heroku.settings(locals())
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
@@ -194,4 +195,3 @@ CORS_ALLOW_CREDENTIALS = True
 LOGIN_REDIRECT_URL = 'homepage'
 LOGIN_URL = 'login'
 
-django_heroku.settings(locals())
