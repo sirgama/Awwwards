@@ -97,7 +97,10 @@
             
           >
             <i class="fas fa-bars m-3"></i> <small class="m-2"> Menu</small> 
-        </div>
+        </div><i class="fas fa-search mt-2 ms-2" type="button"
+        data-bs-toggle="modal"
+        data-bs-target="#exampleModal"
+        ></i>
         </a>
         
       </div>
@@ -201,6 +204,18 @@
     <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
   </div>
   <div class="offcanvas-body all">
+    <form class="d-flex input-group w-auto">
+        <input
+          type="search"
+          class="form-control rounded"
+          placeholder="Search for Projects"
+          aria-label="Search"
+          aria-describedby="search-addon"
+        />
+        <span class="input-group-text border-0" id="search-addon">
+          <i class="fas fa-search"></i>
+        </span>
+      </form>
     <table class="table table-striped">
         <thead>
           <tr>
@@ -229,3 +244,39 @@
       </table>
   </div>
 </div>
+
+
+
+
+
+
+<!-- 
+Modal for search -->
+
+
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+       
+        <div class="modal-body">
+            <form class="d-flex input-group w-auto">
+                <input
+                  type="search"
+                  class="form-control rounded"
+                  placeholder="Search for Projects"
+                  aria-label="Search"
+                  aria-describedby="search-addon"
+                />
+                <span class="input-group-text border-0" id="search-addon">
+                  <i class="fas fa-search"></i>
+                </span>
+              </form>
+        </div>
+       
+         
+        </div>
+      </div>
+    </div>
+  </div>
