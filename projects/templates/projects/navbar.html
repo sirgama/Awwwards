@@ -122,14 +122,15 @@
             data-bs-toggle="dropdown"
             aria-expanded="false">
             <span class="text-dark ">{{user.username|upper}}</span>
+           
               <img
                 src="{{user.profile.image.url}}"
                 class="rounded-circle me-4"
                 height="30"
-                alt="{{user.username}}"
+                alt="..."
                 loading="lazy"
               />
-              
+            
             </a>
             <ul
               class="dropdown-menu dropdown-menu-end"
@@ -149,7 +150,7 @@
                 <a class="dropdown-item" href="{% url 'profile' %}"><i class="fa-regular fa-user"></i> Notifications</a>
               </li><hr>
               <li>
-                <a class="dropdown-item" href="{% url 'profile' %}"><i class="fa-regular fa-user"></i> Settings</a>
+                <a class="dropdown-item" href="{% url 'edit-account' %}"><i class="fa-regular fa-user"></i> Settings</a>
               </li>
               <li>
                 <a class="dropdown-item" href="{% url 'profile' %}"><i class="fa-regular fa-user"></i> Billing</a>
@@ -195,11 +196,36 @@
 
 
 <div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
-  <div class="offcanvas-header">
-    <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Backdrop with scrolling</h5>
+  <div class="offcanvas-header all">
+    <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Quick Access</h5>
     <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
   </div>
-  <div class="offcanvas-body">
-    <p>Try scrolling the rest of the page to see this option in action.</p>
+  <div class="offcanvas-body all">
+    <table class="table table-striped">
+        <thead>
+          <tr>
+            
+            <th scope="col"><a href="{% url 'homepage' %}">Home</a></th>
+          
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+          
+            <td>API Endpoints</td>
+          </tr>
+          <tr>
+           
+            <td>Settings</td>
+          </tr>
+          <tr>
+            {% if user.is_authenticated %}
+           <td><a href="{% url 'logout'%}">Logout</a> </td>
+            {% else %}
+           <td><a href="{% url 'register' %}">Register/Login</a></td> 
+            {% endif %}
+          </tr>
+        </tbody>
+      </table>
   </div>
 </div>
