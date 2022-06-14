@@ -36,6 +36,11 @@ class Site(models.Model):
     def getSites(cls):
         allSites = cls.objects.all()
         return allSites
+    
+    @classmethod
+    def search_by_sitename(cls,search_term):
+        site = cls.objects.filter(sitename__icontains=search_term)
+        return site
 
 
 class Rating(models.Model):

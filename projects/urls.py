@@ -10,4 +10,5 @@ urlpatterns = [
     path('rateusability/', views.rate_usability, name='rate-usability'),
     path('ratecontent/', views.rate_content, name='rate-content'),
     path('sites/<int:pk>', views.View_site, name='view-site'),
+    path('search/', views.search_results, name='search_results'),
 ]

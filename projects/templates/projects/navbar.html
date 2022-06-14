@@ -261,11 +261,12 @@ Modal for search -->
       <div class="modal-content">
        
         <div class="modal-body">
-            <form class="d-flex input-group w-auto">
+            <form class="d-flex input-group w-auto" role="search" action="{% url 'search_results' %}">
                 <input
-                  type="search"
+                  type="text"
                   class="form-control rounded"
                   placeholder="Search for Projects"
+                  name="project"
                   aria-label="Search"
                   aria-describedby="search-addon"
                 />
